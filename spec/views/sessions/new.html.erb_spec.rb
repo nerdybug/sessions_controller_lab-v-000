@@ -7,7 +7,7 @@ RSpec.describe "sessions/new.html.erb", type: :feature do
     expect(page).to have_field(:name)
   end
 
-  scenario "returns to login if user tries logging in without name" do
+  scenario "returns to login page if user tries logging in without name" do
     visit '/login'
     click_button "login"
     expect(page).to have_selector(:link_or_button, 'login')
