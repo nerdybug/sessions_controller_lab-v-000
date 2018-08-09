@@ -8,6 +8,8 @@ RSpec.describe "sessions/new.html.erb", type: :feature do
   end
 
   scenario "returns to login if user tries logging in without name" do
-    visit
+    visit '/login'
+    click_button "login"
+    expect(page).to have_selector(:link_or_button, 'login')
   end
 end
