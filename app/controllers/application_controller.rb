@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def hello
-
+    if session[:name] && !session[:name].empty?
+      render :hello
+    else
+      render :'sessions/new'
+    end
   end
 end
