@@ -9,4 +9,10 @@ RSpec.describe "application/hello.html.erb", type: :feature do
     click_button "login"
     expect(page).to have_text('Hi,')
   end
+
+  scenario "shows the login link instead of greeting if not logged in" do
+    visit '/'
+    expect(@request.session[:name]).to be nil
+    expect(page).to have_selector(:link_or_button, 'login')
+  end
 end
